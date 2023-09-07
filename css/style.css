@@ -1,0 +1,16 @@
+div{
+  background-color: aqua;
+  border: 2px solid black;
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+}
+
+#caja2{
+  font-size: 2em;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.parr{
+  color: brown;
+}
