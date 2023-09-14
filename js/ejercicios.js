@@ -29,11 +29,69 @@ let eqCuad2 = solveQuadEquation(8, 2, -15);
 console.log(eqCuad2);
 
 /**
- * Ej 6: Declare un nombre de función reverseArray. Toma una matriz como parámetro y devuelve el reverso de la matriz (no use el método).
+ * Ej 5: Intercambiar valores
+ */
+
+function swapValues(a, b) {
+  let c = a;
+  a = b;
+  b = c; 
+
+  console.log("Valor de A: ", a, "Valor de B: ", b);
+}
+valorA = 3;
+valorB = 5;
+swapValues(valorA, valorB);
+console.log("ValorA tiene: ", valorA, "ValorB tiene: ", valorB);
+
+/**
+ * Ej 6: Declare un nombre de función reverseArray. Toma un arreglo como parámetro y devuelve el reverso del arreglo (no use el método reverse).
  */
 
 function reverseArray(arreglo) {
   // [1, 2, 3, 4] => [4, 3, 2, 1]
+  let arrayResult = [];
+  // version recorrido hacia adelante utilizando metodo unshift
+  // for (let index = 0; index < arreglo.length; index++) {
+  //   // console.log(arreglo[index]);
+  //   arrayResult.unshift(arreglo[index]);
+  // }
 
+  // version recorrido hacia atras utilizando metodo push
+  // for (let index = arreglo.length - 1; index >= 0; index--) {
+  //   // console.log(arreglo[index]);
+  //   // version con metodo de arreglos push
+  //   arrayResult.push(arreglo[index]);
+  // }
+
+  // version recorrido hacia atras sin utilizar metodos de arreglos
+  // let j = 0;
+  // for (let index = arreglo.length - 1; index >= 0; index--) {
+  //   j = arreglo.length - 1 - index;
+  //   arrayResult[j] = arreglo[index];
+  // }
+
+  // return arrayResult;
+
+  // version sin utilizar arreglo extra
+  let atras = 0;
+  let auxiliar = 0;
+  for (let adelante = 0; adelante < arreglo.length / 2; adelante++) {
+    atras = arreglo.length - 1 - adelante;
+    auxiliar = arreglo[adelante];
+    // arreglo[0] = arreglo[5-1-0] => arreglo[4]   iteracion 0
+    // arreglo[1] = arreglo[5-1-1] => arreglo[3]   iteracion 1
+    arreglo[adelante] = arreglo[atras];
+    arreglo[atras] = auxiliar;
+  }
+  console.log(arreglo);
+  return arreglo;
 }
+
+// document.write("arreglo [" + reverseArray([1,3,5,8,9]) + "]");
+
+const imagen = document.getElementById("img1");
+imagen.addEventListener("click", function () {
+  reverseArray([1,3,5,8,9])
+});
 
